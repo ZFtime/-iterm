@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        X-admin v1.0
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="./css/x-admin.css" media="all">
+    <link rel="stylesheet" href="./css/common.css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="x-nav" style="display: none;">
+        <span class="layui-breadcrumb">
+            <a><cite>首页</cite></a>
+            <!-- <a><cite>会员管理</cite></a>
+              <a><cite>角色管理</cite></a> -->
+            <a><cite>信息管理</cite></a>
+            <a><cite>许可证管理</cite></a>
+        </span>
+        <a class="layui-btn" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);"
+            title="刷新">刷新<i class="layui-icon" style="line-height:30px">ဂ</i></a>
+    </div>
+    <div class="x-body">
+
+        <!-- <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><button
+                class="layui-btn" onclick="role_add('添加用户','role-add.html','900','500')"><i class="layui-icon">&#xe608;</i>添加</button><span
+                class="x-right" style="line-height:40px">共有数据：88 条</span></xblock> -->
+        <div class="m_header">
+            <div class="m_r_left">
+                <h3>许可证信息</h3>
+            </div>
+            <div class="m_r_right">
+                <!-- <div class="m_right_content_input">
+                    <input type="text" placeholder="滚动信息滚动信息滚动信息滚动信息滚动信息滚动信息滚动信息">
+                </div> -->
+                <!-- <div class="m_right_content_i">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div> -->
+                <div class="layui-input-inline" style="width:72%;">
+                    <input type="text" name="username" placeholder="请输入公司名" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline" style="width:54px">
+                    <button class="layui-btn" id="search" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                </div>
+                  <a class="layui-btn  layui-btn-refresh"  href="javascript:location.replace(location.href);"
+            title="刷新"><i class="layui-icon" style="line-height: 35px;">ဂ刷新</i></a>
+            </div>
+        </div>
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <!-- <th>
+                        <input type="checkbox" name="" value="">
+                    </th> -->
+                    <th>公司名称</th>
+                    <th>证书编号</th>
+                    <th>证书类型</th>
+                    <th>业务类型</th>
+                    <th>颁发时间</th>
+                    <th>续期时间</th>
+                    <th>证书状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="icp_tbody">
+                <tr>
+                  
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="page"></div>
+    </div>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script src="./js/x-layui.js" charset="utf-8"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/common.js"></script>
+    <script>
+        (function(){
+            getIcpData(1,10)
+        })()
+        
+        function getIcpData(page,size){
+             var company_status = sessionStorage.getItem("companydataStatus");
+             var userName=$("input[name='username']").val()
+        if (company_status == 200||company_status==null) {
+            $.ajax({
+                type: "get",
+                url: 'http://qzt.cn/api.php/index/Company/getLicenseList.html',
+                dataType: "json",
+                 data: {
+                    page:page,
+                    size:size
+                },
+                success: function (res) {
+                    if (res.code === 200) {
+                        var html = "";
+                        var icpdata= res.data.data
+                        var icpCount = res.data.count
+                        for(var i=0;i<icpdata.length;i++){
+                            for(var j=0;j<icpdata[i].length;j++){
+                                 var tdHtml='<a href="javascript:;"  class="check" data-id="'+icpdata[i][j].id+'" data-companyname="'+icpdata[i][j].company_name +'"  data-number="'+icpdata[i][j].license_no+'" data-companytype="'+icpdata[i][j].business_type+'">年检'+
+                            '</a> <a href="javascript:;">续期'+
+                            '</a>'+
+                            '<a href="javascript:;">提醒'+
+                            '</a>';
+                                    html += '<tr>' +
+                                        '<td>' + icpdata[i][j].company_name + '</td>' +
+                                        '<td>' + icpdata[i][j].license_no + '</td>' +
+                                        '<td>' + icpdata[i][j].business_type + '</td>' +
+                                        '<td>' + icpdata[i][j].license_type + '</td>' +
+                                        '<td>' + icpdata[i][j].start_year + '</td>' +
+                                        '<td>' + icpdata[i][j].xqsj + '</td>' +
+                                        '<td>' + icpdata[i][j].is_valid + '</td>' +
+                                        '<td>'+tdHtml+
+                                        '</td>'+
+                                    '</tr>';
+                            }
+                        }
+                        $("#icp_tbody").html(html);
+                        layui.use('laypage', function (res) {
+                        var laypage = layui.laypage;
+                        laypage({
+                            cont: "page",
+                            pages: icpCount,
+                            limit: 10,
+                            curr:page,
+                            // first: 1,
+                            // last: 100,
+                            prev: "上一页",
+                            next: "下一页",
+                            jump:function(obj,first){
+                                    // console.log("分页执行了");
+                                    // console.log(first);
+                                    curr=obj.curr;
+                                    if(!first){
+                                        getIcpData(curr,obj.limit);
+                                    }
+                                }
+                        })
+                    });
+                    } else {
+                        html = " <td colspan='8'>" + "暂无数据,请到我的公司添加数据" + "</td>"
+                        $("#icp_tbody").html(html);
+                    }
+                },
+                error: function () {
+                    // alert("未获取数据");
+                    return false;
+                }
+            });
+            $('#search').click(function(){
+                var userName =$("input[name='username']").val()
+                $.ajax({
+                    type: "get",
+                    url: 'http://qzt.cn/api.php/index/Company/getLicenseList.html',
+                    dataType: "json",
+                     data: {
+                        page:page,
+                        size:size,
+                        keyword:userName,
+                    },
+                    success:function(res){
+                        console.log(res);
+                        if(res.code==200){
+                              var html = "";
+                              var icpdata=res.data.data;
+                              var search_count=res.data.count;
+                              for(var i=0;i<icpdata.length;i++){
+                                for(var j=0;j<icpdata[i].length;j++){
+                                      var tdHtml='<a href="javascript:;"  class="check" data-id="'+icpdata[i][j].id+'" data-companyname="'+icpdata[i][j].company_name +'"  data-number="'+icpdata[i][j].license_no+'" data-companytype="'+icpdata[i][j].business_type+'">年检'+
+                            '</a> <a href="javascript:;">续期'+
+                            '</a>'+
+                            '<a href="javascript:;">提醒'+
+                            '</a>';
+                                    html += '<tr>' +
+                                        '<td>' + icpdata[i][j].company_name + '</td>' +
+                                        '<td>' + icpdata[i][j].license_no + '</td>' +
+                                        '<td>' + icpdata[i][j].business_type + '</td>' +
+                                        '<td>' + icpdata[i][j].license_type + '</td>' +
+                                        '<td>' + icpdata[i][j].start_year + '</td>' +
+                                        '<td>' + icpdata[i][j].xqsj + '</td>' +
+                                        '<td>' + icpdata[i][j].is_valid + '</td>' +
+                                        '<td>'+tdHtml+
+                                        '</td>'+
+                                    '</tr>';
+                                }
+                              }
+                              $("#icp_tbody").html(html);
+                               layui.use('laypage', function (res) {
+                                var laypage = layui.laypage;
+                                laypage({
+                                    cont: "page",
+                                    pages: search_count,
+                                    limit: 10,
+                                    curr:page,
+                                    // first: 1,
+                                    // last: 100,
+                                    prev: "上一页",
+                                    next: "下一页",
+                                    jump:function(obj,first){
+                                            curr=obj.curr;
+                                            if(!first){
+                                                getIcpData(curr,obj.limit);
+                                            }
+                                        }
+                                })
+                    });
+                        }else {
+                             html = " <td colspan='8'>" + "暂无数据,请到我的公司添加数据" + "</td>"
+                            $("#icp_tbody").html(html);
+                        }
+                    },
+                    error:function(){
+
+                    }
+                })
+            })
+        } else {
+            html = " <td colspan='8'>" + "暂无数据,请到我的公司添加数据" + "</td>"
+            $("#icp_tbody").html(html);
+        } 
+        }
+        $("#icp_tbody").on('click','.check',function(){
+            var params=$(this).attr("data-id");
+            var companyname=$(this).attr("data-companyname");
+            var companynumber=$(this).attr("data-number");
+            var businesstype=$(this).attr('data-companytype');
+            sessionStorage.setItem('infoId',params);
+            sessionStorage.setItem('companyname',companyname);
+            sessionStorage.setItem('companynumber',companynumber);
+            sessionStorage.setItem('businesstype',businesstype);
+            var businesstype=sessionStorage.getItem('businesstype');
+            console.log(businesstype);
+            window.open('./as/as.html')
+
+        })      
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        基本情况表格
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../css/x-admin.css" media="all">
+    <link rel="stylesheet" href="../css/as.css">
+    <!-- <link rel="stylesheet" href="../lib/layui/css/laydate.css"> -->
+</head>
+
+<body>
+    <div class="b-nav">
+       <!--  <xblock>
+            <div class="x-left">
+                <span>年份选择：</span>
+                <input type="text" class="demo-input" placeholder="请选择日期" id="test1">
+            </div>
+            <button class="layui-btn layui-btn-danger" onclick="delAll()">
+                下载模板</button>
+            <div class="x-right" style="line-height:40px">上报状态：
+                <span>已上报</span>
+            </div>
+        </xblock> -->
+        
+    </div>
+    <div class="b-body">
+        <div class="b-table">
+            <form id="entBaseForm" action="" method="post" data-options="novalidate:true" style="padding: 10px;" class="layui-form">
+                <table class="layui-table">
+                    <tbody>
+                        <tr>
+                            <th colspan="7" style="font-size: 16px; padding: 5px; text-align: center;">企业基本情况(公示内容将会向社会公示)
+                                <span style=" float: right; font-size: 10px; font-weight: normal; margin-top:10px;margin-right:10px;">
+                                    <span style="float:left;">保存状态：</span>
+                                    <span data-id="" id="flag1" style="display: none;"></span>
+                                    <span style="float:right;cursor: pointer;" id="status" lay-submit="" lay-filter="save1">保存</span>
+
+                                </span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%">序号</td>
+                            <td colspan="3" style="width: 50%; text-align: center;">指标名称</td>
+                            <td style="width: 5%">单位</td>
+                            <td style="width: 30%; text-align: center;">实际</td>
+                            <td style="width: 10%">公示</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td colspan="3">公司简介</td>
+                            <td colspan="2">
+                                <span class="textbox easyui-fluid" style="width: 400px; height: 58px;">
+                                    <textarea id="_easyui_textbox_input1" name="jg1000" class="layui-input" required lay-verify="required" tabindex="" placeholder="" style="margin: 0px; height: 50px; width: 380px;"
+                                        maxlength="2000"></textarea>
+                                </span>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td colspan="3">企业名称
+                            </td>
+                            <td colspan="2">
+                                <span class="textbox easyui-fluid" style="width: 450px; height: 30px;">
+                                    <input id="_easyui_textbox_input2" type="text" name="jg1001" class="layui-textarea" required lay-verify="required" tabindex=""
+                                        placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 430px;"
+                                        maxlength="1000">
+                                </span>
+
+                            </td>
+                            <td>
+                                <input type="checkbox" name="slide1" value="1" data-id="slide1" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td colspan="3">统一社会信用代码
+                                <input type="hidden" id="base_jg1002" value="91110108779516907M">
+                            </td>
+                            <td colspan="2">
+                                <input class="layui-input" id="jg1002" data-options="required:true,validType:'codeVLI',value:'91110108779516907M'" style="width: 100%; display: none;"
+                                    textboxname="jg1002">
+                                <span class="textbox easyui-fluid" style="width: 492px; height: 30px;">
+                                    <input id="_easyui_textbox_input3" name="jg1002" type="text" class="layui-input" required lay-verify="required" tabindex=""
+                                        placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 472px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1002" value="91110108779516907M"
+                                        maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="slide2" value="1" data-id="slide2" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td colspan="5">企业开展业务的主要应用服务领域代码（见下方代码）</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="3" class="checkboxParent" >
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="A" lay-filter="jg1003" value="（A）网络销售">（A）网络销售
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="B" lay-filter="jg1003" value="（B）金融借贷">（B）金融借贷
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="C" lay-filter="jg1003" value="（C）生产制造">（C）生产制造
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="D" lay-filter="jg1003" value="（D）农业">（D）农业
+                                <br>
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="E" lay-filter="jg1003" value="（E）生产物流">（E）生产物流
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="F" lay-filter="jg1003" value="（F）快递">（F）快递
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="G" lay-filter="jg1003" value="（G）租车约车">（G）租车约车
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="H" lay-filter="jg1003" value="（H）旅游">（H）旅游
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="I" lay-filter="jg1003" value="（I）生活服务" checked="checked">（I）生活服务
+                                <br>
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="J" lay-filter="jg1003" value="（J）众创众筹">（J）众创众筹
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="K" lay-filter="jg1003" value="（K）科技创新和知识产权">（K）科技创新和知识产权
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="L" lay-filter="jg1003" value="（L）电子政务">（L）电子政务
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="M" lay-filter="jg1003" value="（M）卫生">（M）卫生
+                                <br>
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="N" lay-filter="jg1003" value="（N）教育">（N）教育
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="O" lay-filter="jg1003" value="（O）网络安全">（O）网络安全
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="P" lay-filter="jg1003" value="（P）新闻和内容">（P）新闻和内容
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="Q" lay-filter="jg1003" value="（Q）游戏">（Q）游戏
+                                <br>
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="R" lay-filter="jg1003" value="（R）音乐和视频">（R）音乐和视频
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="S" lay-filter="jg1003" value="（S）社交">（S）社交
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="T" lay-filter="jg1003" value="（T）搜索">（T）搜索
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="U" lay-filter="jg1003" value="（U）呼叫中心">（U）呼叫中心
+                                <br>
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="V" lay-filter="jg1003" value="（V）互联网数据中心（IDC）">（V）互联网数据中心（IDC）
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="W" lay-filter="jg1003" value="（W）互联网接入服务（ISP">（W）互联网接入服务（ISP）
+                                <br>
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="X" lay-filter="jg1003" value="（X）内容分发网络（CDN）">（X）内容分发网络（CDN）
+                                <input type="checkbox" name="jg1003" class="checkbox" data-id="Y" lay-filter="jg1003" value="（Y）其他" checked="checked">（Y）其他</td>
+                            <td colspan="2">
+                                <div id="jg1003-1">
+                                    <span style="margin-right:5px;" data-id="I" id="（I）生活服务">（I）生活服务</span>
+                                    <span style="margin-right:5px;" data-id="Y" id="（Y）其他">（Y）其他</span>
+                                </div>
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td colspan="3">法定代表人
+                                <input type="hidden" id="base_jg1004" value="彭飞">
+                            </td>
+                            <td colspan="2">
+                                <input class="layui-input" id="jg1004" data-options="required:true,validType:'length[1,100]',value:'彭飞'" style="width: 100%; display: none;"
+                                    textboxname="jg1004">
+                                <span class="textbox easyui-fluid" style="width: 529px; height: 30px;">
+                                    <input id="_easyui_textbox_input4" name="jg1004" type="text" class="layui-input" required lay-verify="required" tabindex=""
+                                        placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 509px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1004" value="彭飞" maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="slide3" value="1" data-id="slide3" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td colspan="3">（法人）联系方式（手机号码）</td>
+                            <td colspan="2">
+                                <input class="layui-input" id="jg1005" data-options="required:true,validType:'phone',min:0,value:'18600020143'" style="width: 100%; display: none;"
+                                    textboxname="jg1005">
+                                <span class="textbox easyui-fluid" style="width: 560px; height: 30px;">
+                                    <input id="_easyui_textbox_input5" type="text" name="jg1005" class="layui-input" required lay-verify="phone" tabindex=""
+                                        placeholder="" value="13336894035" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 540px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1005" value="18600020143"
+                                        maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td colspan="3">许可证编号
+                                <input type="hidden" id="base_jg1006" value="京ICP证161162号">
+                            </td>
+                            <td colspan="2">
+                                <input class="layui-input" id="jg1006" data-options="required:true,validType:'length[1,100]',value:'京ICP证161162号'" style="width: 100%; display: none;"
+                                    textboxname="jg1006">
+                                <span class="textbox easyui-fluid" style="width: 588px; height: 30px;">
+                                    <input id="_easyui_textbox_input6" type="text" name="jg1006" class="layui-input" required lay-verify="required" tabindex=""
+                                        placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 568px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1006" value="京ICP证161162号"
+                                        maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="slide4" value="1" data-id="slide4" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td colspan="3">注册住所
+                                <input type="hidden" id="base_jg1007" value="北京市海淀区悦秀路99号1单元623室">
+                            </td>
+                            <td colspan="2">
+                                <input class="layui-input" id="jg1007" data-options="required:true,validType:'length[1,2000]',value:'北京市海淀区悦秀路99号1单元623室'"
+                                    style="width: 100%; display: none;" textboxname="jg1007">
+                                <span class="textbox easyui-fluid" style="width: 612px; height: 30px;">
+                                    <input id="_easyui_textbox_input7" type="text" name="jg1007" class="layui-input" required lay-verify="required" tabindex=""
+                                        placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 592px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1007" value="北京市海淀区悦秀路99号1单元623室"
+                                        maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="slide5" value="1" data-id="slide5" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td colspan="3">注册属地
+                                <input type="hidden" id="base_jg1008" value="110000">
+                            </td>
+                            <td colspan="2">
+                                <input id="jg1008" class="easyui-combotree combotree-f combo-f textbox-f" data-options="url:'/FineReport/multicom/selectAreas',value:'110000'"
+                                    style="width: 100%; display: none;" textboxname="jg1008" comboname="jg1008">
+                                <span class="textbox easyui-fluid combo" style="width: 676px; height: 30px;">
+                                    <span class="textbox-addon textbox-addon-right" style="right: 0px; top: 0px;">
+                                        <a href="javascript:;" class="textbox-icon combo-arrow" icon-index="0" tabindex="-1" style="width: 18px; height: 30px;"></a>
+                                    </span>
+                                    <input id="_easyui_textbox_input22" type="text" name="jg1008" class="layui-input validatebox-readonly" required lay-verify="required"
+                                        tabindex="" placeholder="" value="" style="margin: 0px 30px 0px 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 638px;">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1008" value="110000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="slide6" value="1" data-id="slide6" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td colspan="3">联系人</td>
+                            <td colspan="2">
+                                <input class="layui-input" id="jg1009" data-options="required:true,validType:'length[1,100]',value:'张学敏'" style="width: 100%; display: none;"
+                                    textboxname="jg1009">
+                                <span class="textbox easyui-fluid" style="width: 632px; height: 30px;">
+                                    <input id="_easyui_textbox_input8" type="text" name="jg1009" class="layui-input" required lay-verify="required" tabindex=""
+                                        placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 612px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1009" value="张学敏" maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td colspan="3">（联系人）联系方式（手机号码）</td>
+                            <td colspan="2">
+                                <input class="layui-input" id="jg1010" data-options="required:true,validType:'phone',value:'13146948798'" style="width: 100%; display: none;"
+                                    textboxname="jg1010">
+                                <span class="textbox easyui-fluid" style="width: 649px; height: 30px;">
+                                    <input id="_easyui_textbox_input9" type="text" name="jg1010" class="layui-input" required lay-verify="phone" tabindex=""
+                                        placeholder="" value="13146948798" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 628px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1010" value="13146948798"
+                                        maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td colspan="3">注册资本
+                                <input type="hidden" id="base_jg1011" value="700.000000">
+                            </td>
+                            <td style="padding-left: 5px; padding-right: 5px;">万元</td>
+                            <td>
+                                <!-- <input class="easyui-textbox money textbox-f" id="jg1011" data-options="required:true,validType:'ZCZB',value:'700'" style="width: 100%; display: none;"
+                                    textboxname="jg1011"> -->
+                                <span class="textbox easyui-fluid" style="width: 553px; height: 30px;">
+                                    <input id="_easyui_textbox_input10" type="text" name="jg1011" class="layui-input" required lay-verify="required" tabindex=""
+                                        placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 533px; color: black;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1011" value="700" maxlength="1000"
+                                        style="color: black;"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="slide7" value="1" data-id="slide7" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td colspan="3">许可证业务种类
+                                <input type="hidden" id="base_jg1012" value="信息服务业务（仅限互联网信息服务）">
+                            </td>
+                            <td colspan="2">
+                                <input class="layui-input" id="jg1012" data-options="required:true,validType:'length[1,2000]',multiline:true,value:'信息服务业务（仅限互联网信息服务）'"
+                                    style="width: 100%; height: 66px; display: none;" textboxname="jg1012">
+                                <span class="textbox easyui-fluid" style="width: 664px; height: 64px;">
+                                    <textarea id="_easyui_textbox_input11" name="jg1012" class="layui-input" required lay-verify="required" tabindex="" placeholder=""
+                                        style="margin: 0px; height: 56px; width: 644px;" maxlength="2000"></textarea>
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1012" value="信息服务业务（仅限互联网信息服务）"
+                                        maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="slide8" value="1" data-id="slide8" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td colspan="3">企业性质</td>
+                            <td colspan="2" style="text-align: left;">
+                                <input type="radio" name="jg1013" class="radio" value="1" id="1" title="国有控股企业">
+                                <br>
+                                <input type="radio" name="jg1013" class="radio" value="2" id="2" title="民营控股企业" >
+                                <br>
+                                <input type="radio" name="jg1013" class="radio" value="3" id="3" title="外商投资企业">
+                                <br>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="slide9" value="1" data-id="slide9" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">15</td>
+                            <td colspan="3" rowspan="3">上市情况</td>
+                            <td colspan="2" style="text-align: left;">
+                                <div class="radioParent">
+                                    <input type="radio" name="jg1014" class="radio" value="1" title="未上市" lay-filter="jg1014" checked="checked" data-type="1"
+                                        data-id="1">
+                                    <input type="radio" name="jg1014" class="radio" value="2" lay-filter="jg1014" title="新三板（股票代码）" data-type="2" data-id="2">
+                                    <br>
+                                    <input type="radio" name="jg1014" class="radio" value="3" lay-filter="jg1014" title="境内上市（股票代码）" data-type="2" data-id="3">
+                                    <input type="radio" name="jg1014" class="radio" value="4" lay-filter="jg1014" title="香港上市（股票代码）" data-type="2" data-id="4">
+                                    <br>
+                                    <input type="radio" name="jg1014" class="radio" value="5" lay-filter="jg1014" title="美国上市（股票代码）" data-type="2" data-id="5">
+                                    <input type="radio" name="jg1014" class="radio" value="6" lay-filter="jg1014" title="其他地区上市（上市地区,股票代码）" data-type="3" data-id="6">
+                                </div>
+                            </td>
+                            <td rowspan="3">
+                                <input type="checkbox" name="slide10" value="1" data-id="slide10" title="是">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-left: 1px solid rgba(34, 36, 38, 0.1);">上市情况</td>
+                            <td>
+                                <input class="layui-input" id="jg10141" data-options="readonly:true,validType:'length[1,1000]'" style="width: 100%; display: none;"
+                                    textboxname="jg10141">
+                                <span class="textbox textbox-readonly easyui-fluid" style="width: 566px; height: 30px;">
+                                    <input id="_easyui_textbox_input12" type="text"  class="layui-input  textbox-prompt" name="jg10141"
+                                        tabindex="" disabled placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 546px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg10141" value="" maxlength="1000"> -->
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-left: 1px solid rgba(34, 36, 38, 0.1);">股票代码</td>
+                            <td>
+                                <input class="layui-input" id="jg1015" data-options="readonly:true,validType:'length[1,1000]'" style="width: 100%; display: none;"
+                                    textboxname="jg1015">
+                                <span class="textbox easyui-fluid" style="width: 576px; height: 30px;">
+                                    <input id="_easyui_textbox_input28" type="text" name="jg1015" class="layui-input" tabindex="" 
+                                        disabled placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 556px;">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg10142" value="835477" maxlength="1000"> -->
+                                </span>
+                            </td>
+                        </tr>
+                        <tr id="17row" style="display: none;">
+                            <td>16</td>
+                            <td style="text-align: center;">分支机构名称</td>
+                            <td style="text-align: center;">分支机构地址</td>
+                            <td style="text-align: center;">省（自治区、直辖市）</td>
+                            <td style="text-align: center;">联系人</td>
+                            <td style="text-align: center;">联系方式</td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                        </tr>
+
+
+                        <tr class="jg1015" style="display: none;">
+                            <td></td>
+                            <td>
+                                <input class="layui-input" id="jg101501" data-options="value:'',required:true,validType:'length[1,100]'" style="width: 175px; display: none;">
+                                <span class="textbox" style="width: 173px; height: 30px;">
+                                    <input id="_easyui_textbox_input23" type="text" class="layui-input textbox-prompt" tabindex="" placeholder="" value=""
+                                        style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 153px;">
+                                    <!-- <input type="hidden" class="textbox-value" value="" maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input class="layui-input" id="jg101511" data-options="value:'',required:true,validType:'length[1,100]'" style="width: 175px; display: none;">
+                                <span class="textbox" style="width: 173px; height: 30px;">
+                                    <input id="_easyui_textbox_input24" type="text" class="layui-input textbox-prompt" tabindex="" placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 153px;">
+                                    <!-- <input type="hidden" class="textbox-value" value="" maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input id="jg101521" class="easyui-combobox combobox-f combo-f textbox-f" data-options="value:'',fix:true,required:true,editable:false,prompt:'请选择',data:province,valueField:'id',textField:'text'"
+                                    style="display: none;">
+                                <span class="textbox combo" style="width: 136px; height: 30px;">
+                                    <span class="textbox-addon textbox-addon-right" style="right: 0px; top: 0px;">
+                                        <a href="javascript:;" class="textbox-icon combo-arrow" icon-index="0" tabindex="-1" style="width: 18px; height: 30px;"></a>
+                                    </span>
+                                    <input id="_easyui_textbox_input25" type="text" class="layui-input validatebox-readonly textbox-prompt" tabindex="" readonly="readonly"
+                                        placeholder="请选择" style="margin: 0px 30px 0px 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 98px;">
+                                    <!-- <input type="hidden" class="textbox-value" name="" value=""> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input class="layui-input" id="jg101531" data-options="value:'',required:true,validType:'length[1,100]'" style="width: 90px; display: none;">
+                                <span class="textbox" style="width: 88px; height: 30px;">
+                                    <input id="_easyui_textbox_input26" type="text" class="layui-input textbox-prompt" tabindex="" placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 68px;">
+                                    <!-- <input type="hidden" class="textbox-value" value="" maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <input class="layui-input" id="jg101541" data-options="value:'',required:true,validType:'phone'" style="width: 220px; display: none;">
+                                <span class="textbox" style="width: 218px; height: 30px;">
+                                    <input id="_easyui_textbox_input27" type="text" class="layui-input textbox-prompt" tabindex="" placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 198px;">
+                                    <!-- <input type="hidden" class="textbox-value" value="" maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" class="easyui-linkbutton l-btn l-btn-small" data-options="iconCls:'icon-add'" onclick="addRowEntBase(this);"
+                                    style="height: 23px; width: 33px;" group="" id="">
+                                    <span class="l-btn-left l-btn-icon-left" style="margin-top: -3px;">
+                                        <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                                        <span class="l-btn-icon icon-add">&nbsp;</span>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="easyui-linkbutton l-btn l-btn-small l-btn-disabled" data-options="iconCls:'icon-remove',disabled:true"
+                                    onclick="delRowEntBase(this,1);" style="height: 23px; width: 33px;" group="" id="">
+                                    <span class="l-btn-left l-btn-icon-left" style="margin-top: -3px;">
+                                        <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                                        <span class="l-btn-icon icon-remove">&nbsp;</span>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td id="17td">16</td>
+                            <td colspan="3">企业是否履行月报义务</td>
+                            <td colspan="2" style="text-align: left;">
+                                <input type="radio" name="jg1016" class="radio" id="1" value="1" title="是">
+                                <input type="radio" name="jg1016" class="radio" value="0" id="0" title="否">
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3" id="18td">17</td>
+                            <td colspan="3">从业人员总数</td>
+                            <td>人</td>
+                            <td>
+                                <input class="layui-input" id="jg1017" data-options="required:true,validType:'otherNum',value:'200'" style="width: 100%; display: none;"
+                                    textboxname="jg1017">
+                                <span class="textbox easyui-fluid" style="width: 566px; height: 30px;">
+                                    <!-- <input id="_easyui_textbox_input18" type="number" class="layui-input"
+                                        required  lay-verify="required"  tabindex="" pattern="[0-9]" placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 546px;"
+                                        maxlength="1000"> -->
+                                    <input id="_easyui_textbox_input18" type="text" name="jg1017" class="layui-input" required lay-verify="required" tabindex=""
+                                        pattern="[0-9]" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                        onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                        placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 546px;"
+                                        maxlength="1000">
+                                    <!-- <input id="_easyui_textbox_input18" type="number" class="layui-input"
+                                        required  lay-verify="required"  tabindex="" placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 546px;"
+                                        maxlength="1000" pattern="[0-9]" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"> -->
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1016" value="200" maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="border-left: 1px solid rgba(34, 36, 38, 0.1); text-align: left;">&nbsp;&nbsp;&nbsp;其中：研发人员</td>
+                            <td style="text-align: center;">人</td>
+                            <td>
+                                <!-- <input class="layui-input" id="jg1018" data-options="required:true,validType:'otherNum',value:'10'" style="width: 100%; display: none;"
+                                    textboxname="jg1018"> -->
+                                <span class="textbox easyui-fluid" style="width: 566px; height: 30px;">
+                                    <input id="_easyui_textbox_input19" type="text" name="jg1018" class="layui-input" required lay-verify="required" tabindex=""
+                                        pattern="[0-9]" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                        onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                        placeholder="" value="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 546px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1017" value="10" maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="border-left: 1px solid rgba(34, 36, 38, 0.1); text-align: left;">&nbsp;&nbsp;&nbsp;其中：从事增值电信业务人员</td>
+                            <td style="text-align: center;">人</td>
+                            <td>
+                                <input class="layui-input" id="jg1019" data-options="required:true,validType:'otherNum',value:'10'" style="width: 100%; display: none;"
+                                    textboxname="jg1019">
+                                <span class="textbox easyui-fluid" style="width: 566px; height: 30px;">
+                                    <input id="_easyui_textbox_input20" value="" type="text" name="jg1019" class="layui-input" required lay-verify="required"
+                                        tabindex="" pattern="[0-9]" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                        onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                        placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 546px;"
+                                        maxlength="1000">
+                                    <!-- <input type="hidden" class="textbox-value" name="jg1018" value="10" maxlength="1000"> -->
+                                </span>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <a href="javascript:void(0);" class="easyui-linkbutton l-btn l-btn-small" data-options="iconCls:'icon-add'" onclick="save(0);"
+                                    id="saveTmpBtn" group="" style="display: none;">
+                                    <span class="l-btn-left l-btn-icon-left">
+                                        <span class="l-btn-text">暂存</span>
+                                        <span class="l-btn-icon icon-add">&nbsp;</span>
+                                    </span>
+                                </a>
+                                <a href="javascript:void(0);" class="easyui-linkbutton l-btn l-btn-small" data-options="iconCls:'icon-add'" onclick="save(1);"
+                                    id="saveBtn" group="" style="display: none;">
+                                    <span class="l-btn-left l-btn-icon-left">
+                                        <span class="l-btn-text">保存</span>
+                                        <span class="l-btn-icon icon-add">&nbsp;</span>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    <!-- <script src="../js/x-layui.js" charset="utf-8"></script>
+    <script src="../laydate/laydate.js"></script>
+    <script src="../js/jquery-3.3.1.js"></script> -->
+    <script src="../lib/layui/layui.js"></script>
+    <script src="../js/handleTable.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+       
+        //   $(function(){
+        //   $("#loginUsername").text(sessionStorage.getItem('loginUsername'));
+        // })
+        // document.querySelector(".exitAdmin").onclick = function () {
+        //     $.ajax({
+        //       type:"get",
+        //       url:"http://qzt.cn/api.php/index/Account/logout.html",
+        //       dataType:"json",
+        //       success:function(res){
+        //         // console.log(res);
+        //         if(res.code&&res.code===200){
+        //             sessionStorage.setItem("isLogin", false);
+        //             window.location.href = "/"; 
+        //         }
+        //       },
+        //       error:function(res){
+        //         console.log(res);
+        //       }
+        //     })
+
+        // };
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</body>
+
+</html>

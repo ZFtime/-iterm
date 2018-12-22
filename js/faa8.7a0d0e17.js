@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["faa8"],{faa8:function(a,e,n){"use strict";n.r(e);var l,o,u=n("2877"),p={},s=Object(u["a"])(p,l,o,!1,null,null,null);s.options.__file="yearCheck.vue",e["default"]=s.exports}}]);

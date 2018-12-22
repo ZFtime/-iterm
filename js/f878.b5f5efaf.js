@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["f878"],{f878:function(n,e,l){"use strict";l.r(e);var o,u,p=l("2877"),s={},t=Object(p["a"])(s,o,u,!1,null,null,null);t.options.__file="brand.vue",e["default"]=t.exports}}]);

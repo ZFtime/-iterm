@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        测试
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../css/x-admin.css" media="all">
+    <link rel="stylesheet" href="../css/as.css">
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/common.css">
+<script src="../lib/layui/layui.js" charset="utf-8"></script>
+    <!-- <script src="../js/common.js"></script>
+    <script src="../js/x-layui.js" charset="utf-8"></script>     -->
+    <style>
+        /*       .layui-table td, .layui-table th{
+            padding: 9px 75px;
+        }*/
+    </style>
+</head>
+
+<body>
+    <!--  <div class="b-nav">
+        <xblock>
+            <div class="x-left">
+                <span>年份选择：</span>
+                <input type="text" class="demo-input" placeholder="请选择日期" id="test1">
+            </div>
+            <button class="layui-btn layui-btn-danger" onclick="delAll()">
+                下载模板</button>
+            <div class="x-right" style="line-height:40px">上报状态：
+                <span>已上报</span>
+            </div>
+        </xblock>
+    </div> -->
+    <div class="b-body">
+        <div class="b-table">
+            <table class="layui-table layui-form">
+                <tbody>
+                    <tr>
+                        <td rowspan="2">4</td>
+                        <td rowspan="2">安全管理制度建设</td>
+                        <td colspan="5" style="text-align: left;">
+                            <span style="height: 20px;line-height:20px;">
+                                提示：信息安全管理制度：包括但不限于信息安全管理责任制、信息安全评估、用户信息安全管理、违法违规互联网信息服务和违法信息的巡查与处置、重大信息安全事件应急处置和报告制度、信息安全教育培训、用户举报和投诉处理等制度，请写明企业内部相关管理制度名称并附制度文本。
+                            </span>
+                            <table class="table table-celled">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center; padding: 9px 120px;">文件名称</th>
+                                        <th style="text-align: center;padding: 9px 122px;">上传时间</th>
+                                        <th style="text-align: center; padding: 9px 55px;">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="content2">
+                                    <tr>
+                                        <td>
+                                            <!--  <a href="javascript:void(0);" onclick="downloadFile('信息安全管理度.docx','reportFiles/2018/02/22/1519281732883098.docx');">信息安全管理度.docx</a> -->
+                                            <a href="javascript:;" id="upload_filename1">
+
+                                           </a>
+                                        </td>
+                                        <td>
+                                            <!-- 2018-02-22 14:42:12 -->
+                                            <span id="upload_filetime1">上传时间</span>
+                                        </td>
+                                        <td>
+                                            <input type="file" name="file1" id="up1" lay-type="file" class="layui-upload-file">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- <input class="easyui-textbox textbox-f" id="jg1054" data-options="required:true,validType:'length[1,2000]',multiline:true,prompt:'信息安全管理制度：包括但不限于信息安全管理责任制、信息安全评估、用户信息安全管理、违法违规互联网信息服务和违法信息的巡查与处置、重大信息安全事件应急处置和报告制度、信息安全教育培训、用户举报和投诉处理等制度，请写明企业内部相关管理制度名称并附制度文本。'"
+                                style="width: 100%; height: 80px; display: none;"> -->
+                            <span class="layui-input-block" style="width: 767px; height: 78px;">
+                                <textarea lay-verify="required" id="_easyui_textbox_input5" name="jg1055" class="layui-input"
+                                    autocomplete="off" tabindex="" placeholder="信息安全管理制度：包括但不限于信息安全管理责任制、信息安全评估、用户信息安全管理、违法违规互联网信息服务和违法信息的巡查与处置、重大信息安全事件应急处置和报告制度、信息安全教育培训、用户举报和投诉处理等制度，请写明企业内部相关管理制度名称并附制度文本。"
+                                    maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
+                                <!-- <input type="hidden" class="textbox-value" value="信息安全管理制度：包括信息安全管理责任制、信息安全评估、用户信息安全管理、违法违规互联网信息服务和违法信息的巡查与处置、重大信息安全事件应急处置和报告制度、信息安全教育培训、用户举报和投诉处理等制度。见附件"
+                                    maxlength="1000"> -->
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-left: 1px solid rgba(34, 36, 38, 0.1); text-align: left;" colspan="5">
+                            <span style="height: 20px;line-height:20px;">
+                                提示：
+                                <br> 1、网络安全管理制度：包括但不限于网络安全防护工作机制、网络安全事件应急处置和报告制度、网络安全威胁处置制度等，请写明企业内部相关管理制度名称并附制度文本。
+                                <br> 2、网络安全操作规程：包括但不限于制定的信息化及安全相关部门网络安全操作标准规范、采用或使用的网络安全标准等，需写明标准规范名称及主要内容。
+                            </span>
+                            <table class="table table-celled">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;padding: 9px 120px;">文件名称</th>
+                                        <th style="text-align: center;padding: 9px 122px;">上传时间</th>
+                                        <th style="text-align: center;padding: 9px 55px;">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="content3">
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void(0);" onclick="downloadFile('网络安全管理制度.docx','reportFiles/2018/02/22/1519282777661807.docx');">网络安全管理制度.docx</a>
+                                            <a href="javascript:;" id="upload_filename2"></a>
+                                        </td>
+                                        <td>2018-02-22 14:59:37
+                                            <span  id="upload_filetime2"></span>
+                                        </td>
+                                        <td>
+                                            <!--  <input type="file" name="file2" lay-type="file" class="layui-upload-file"> -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <span class="layui-input-block" style="width: 767px; height: 78px;">
+                                <textarea id="_easyui_textbox_input6" class="layui-input" autocomplete="off" name="jg1056"
+                                    tabindex="" placeholder="1、网络安全管理制度：包括但不限于网络安全防护工作机制、网络安全事件应急处置和报告制度、网络安全威胁处置制度等，请写明企业内部相关管理制度名称并附制度文本。 
+            2、网络安全操作规程：包括但不限于制定的信息化及安全相关部门网络安全操作标准规范、采用或使用的网络安全标准等，需写明标准规范名称及主要内容。"
+                                    maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">5</td>
+                        <td rowspan="3">信息安全技术保障措施</td>
+                        <td colspan="5" style="text-align: left;">
+                            <span style="height: 20px;line-height:20px;">
+                                1、提示：需详细介绍企业信息安全技术保障措施的建设运行与使用管理等情况，包括但不限于违法信息监测处置、日志留存等技术手段。
+                            </span>
+                            <span class="layui-input-block" style="width: 767px; height: 78px;">
+                                <textarea lay-verify="required" id="_easyui_textbox_input8" class="layui-input"
+                                    autocomplete="off" name="jg1057" tabindex="" placeholder="需详细介绍企业信息安全技术保障措施的建设运行与使用管理等情况，包括但不限于违法信息监测处置、日志留存等技术手段。"
+                                    maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="border-left: 1px solid rgba(34, 36, 38, 0.1);text-align: left;height:30px">
+                            2、对于持有B11、B12、B14、B26-1业务牌照的企业，应按照《互联网信息安全管理系统使用及运行维护管理办法（试行）》（工信厅网安〔2016〕135号）要求，详细介绍本企业互联网信息安全管理系统的落实情况，并介绍系统业务覆盖情况，具体如下：
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="border-left: 1px solid rgba(34, 36, 38, 0.1);width: 64%;">
+                            <table class="table table-celled" style="border: 1px solid rgba(34, 36, 38, 0.1);">
+                                <tbody class="table-celled-td">
+                                    <tr>
+                                        <td style="width:25%">覆盖机房/节点位置</td>
+                                        <td style="width:25%">覆盖带宽</td>
+                                        <td style="width:15%">本年度是否有扩容或变更</td>
+                                        <td style="width:35%" colspan="2">如是，请具体说明</td>
+                                    </tr>
+                                    <tr class="FG">
+                                        <td>
+                                            <input class="easyui-textbox textbox-f" id="JG10551_1" data-options="value:'北京',required:true,validType:'length[1,100]'" style="width: 100%; display: none;">
+                                            <span class="layui-input-block" style="width: 171px; height: 30px;">
+                                                <input id="_easyui_textbox_input9" type="text" class="layui-input"
+                                                    autocomplete="off" tabindex="" placeholder="" name="jg1066" value=""
+                                                    maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 151px;">
+                                                <input type="hidden" class="textbox-value" value="北京" maxlength="1000">
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <input class="easyui-textbox textbox-f" id="JG10552_1" data-options="value:'50M',required:true,validType:'length[1,100]'" style="width: 100%; display: none;">
+                                            <span class="layui-input-block" style="width: 170px; height: 30px;">
+                                                <input id="_easyui_textbox_input10" name="jg1067" type="text" class="layui-input"
+                                                    value="" autocomplete="off" tabindex="" placeholder=""
+                                                    maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 150px;">
+                                                <input type="hidden" class="textbox-value" value="50M" maxlength="1000">
+                                            </span>
+                                        </td>
+                                        <td class="layui-form">
+                                            <input type="radio" class="radio" name="jg1068" title="是" value="1" onclick="build('是',this)">
+                                            <input type="radio" class="radio" name="jg1068" value="0" title="否" checked="" onclick="build('否',this)">
+                                            <input type="checkbox" value="1" lay-skin="primary" name="abc" />
+                                        </td>
+                                        <td>
+                                            <!--  <input id="JG10554_1" class="easyui-textbox textbox-f" data-options="value:'',required:true,validType:'length[1,100]'" style="width: 100%; display: none;"> -->
+                                            <span class="layui-input-block textbox-readonly" style="width: 160px; height: 30px;">
+                                                <input id="_easyui_textbox_input22" type="text" class="layui-input validatebox-readonly textbox-prompt"
+                                                    name="jg1069" value="" autocomplete="off" tabindex=""
+                                                     placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 140px;">
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0);" lay-filter="add" lay-submit>
+                                                <i class="layui-icon">&#xe608;</i>
+                                            </a>
+                                            <a href="javascript:void(0);">
+                                                <i class="layui-icon">&#xe640;</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>网络安全技术保障措施</td>
+                        <td colspan="5" style="text-align: left;">
+                            <span style="height: 20px;line-height:20px;">
+                                提示：
+                                <br> 1、按照通信网络防护标准，详细介绍企业网络安全防护相关技术保障措施建设情况，包括管理安全、网络系统安全、应用安全、主机安全、数据安全、物理环境安全等。
+                                <br>
+                                2、对于持有B11、B14、B25、B26-1业务牌照的企业，应详细介绍本企业针对木马僵尸网络、移动恶意程序、网站仿冒等公共网络安全威胁，采取停止仿冒网站或恶意程序传播、控制服务器的域名解析服务等技术手段或处置措施。
+                            </span>
+                            <span class="layui-input-block" style="width: 767px; height: 78px;">
+                                <textarea lay-verify="required" id="_easyui_textbox_input12" class="layui-input"
+                                    autocomplete="off" name="jg1059" tabindex="" placeholder="1、按照通信网络防护标准，详细介绍企业网络安全防护相关技术保障措施建设情况，包括管理安全、网络系统安全、应用安全、主机安全、数据安全、物理环境安全等。
+            2、对于持有B11、B14、B25、B26-1业务牌照的企业，应详细介绍本企业针对木马僵尸网络、移动恶意程序、网站仿冒等公共网络安全威胁，采取停止仿冒网站或恶意程序传播、控制服务器的域名解析服务等技术手段或处置措施。"
+                                    maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <td rowspan="3">6</td>
+                        <td rowspan="3">重要通信技术保障措施</td>
+                        <td colspan="5" style="text-align: left;">
+                            <span style="height: 20px;line-height:20px;">
+                                提示：
+                                <br> 1、对于需要重要通信配合的企业，请详细说明企业具备的安全措施，包括门禁、视频监控、消防、机柜锁等。
+                                <br> 2、对于需要重要通信配合的企业，请详细介绍本企业重要通信系统的落实情况。
+                            </span>
+                            <input class="easyui-textbox textbox-f" id="jg1057" data-options="validType:'length[1,2000]',multiline:true,prompt:'1、对于需要重要通信配合的企业，请详细说明企业具备的安全措施，包括门禁、视频监控、消防、机柜锁等。\n2、对于需要重要通信配合的企业，请详细介绍本企业重要通信系统的落实情况。'" style="width: 100%; height: 80px; display: none;">
+                            <span class="layui-input-block" style="width: 0px; height: 78px;">
+                                <textarea id="_easyui_textbox_input13" class="layui-input textbox-prompt" autocomplete="off"
+                                    tabindex="" placeholder=" 1、对于需要重要通信配合的企业，请详细说明企业具备的安全措施，包括门禁、视频监控、消防、机柜锁等。
+            2、对于需要重要通信配合的企业，请详细介绍本企业重要通信系统的落实情况。"
+                                    maxlength="2000" style="margin: 0px; height: 70px; width: 0px;">13详细介绍企业信息</textarea>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <td colspan="5" style="border-left: 1px solid rgba(34, 36, 38, 0.1);text-align: left;height:30px">
+                            3、请说明企业的业务变更情况，具体如下：
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <td colspan="5" style="border-left: 1px solid rgba(34, 36, 38, 0.1);">
+                            <table class="table table-celled" style="border: 1px solid rgba(34, 36, 38, 0.1);">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:25%">产品名称</td>
+                                        <td style="width:25%">已开展业务类型</td>
+                                        <td style="width:15%">本年度是否有业务变更/系统升级扩容</td>
+                                        <td style="width:35%" colspan="2">如是，请具体说明</td>
+                                    </tr>
+                                    <tr class="YW">
+                                        <td>
+                                            <input class="easyui-textbox textbox-f" id="jg10571_1" data-options="value:'',validType:'length[1,100]'" style="width: 100%; display: none;">
+                                            <span class="layui-input-block" style="width: 0px; height: 30px;">
+                                                <input id="_easyui_textbox_input14" type="text" class="layui-input textbox-prompt"
+                                                    autocomplete="off" tabindex="" placeholder="" maxlength="1000"
+                                                    style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 0px;">
+                                                <input type="hidden" class="textbox-value" value="" maxlength="1000">
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <input class="easyui-textbox textbox-f" id="jg10572_1" data-options="value:'',validType:'length[1,100]'" style="width: 100%; display: none;">
+                                            <span class="layui-input-block" style="width: 0px; height: 30px;">
+                                                <input id="_easyui_textbox_input15" type="text" class="layui-input textbox-prompt"
+                                                    autocomplete="off" tabindex="" placeholder="" maxlength="1000"
+                                                    style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 0px;">
+                                                <input type="hidden" class="textbox-value" value="" maxlength="1000">
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <!--   <input type="radio" class="radio" name="jg10573_1" value="是" checked="" onclick="build2('是',this)">是
+                                            <input type="radio" class="radio" name="jg10573_1" value="否" onclick="build2('否',this)">否 -->
+                                        </td>
+                                        <td>
+                                            <input id="jg10574_1" class="easyui-textbox textbox-f" data-options="value:'',validType:'length[1,100]'" style="width: 100%; display: none;">
+                                            <span class="layui-input-block" style="width: 0px; height: 30px;">
+                                                <input id="_easyui_textbox_input16" type="text" class="layui-input textbox-prompt"
+                                                    autocomplete="off" tabindex="" placeholder="" maxlength="1000"
+                                                    style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 0px;">
+                                                <input type="hidden" class="textbox-value" value="" maxlength="1000">
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0);" class="easyui-linkbutton l-btn l-btn-small"
+                                                data-options="iconCls:'icon-add'" onclick="addRowYW(this);" style="width: 33px; position: static; display: inline-block; left: auto;"
+                                                group="" id="">
+                                                <span class="l-btn-left l-btn-icon-left" style="margin-top: 0px;">
+                                                    <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                                                    <span class="l-btn-icon icon-add">&nbsp;</span>
+                                                </span>
+                                            </a>
+                                            <a href="javascript:;" class="easyui-linkbutton l-btn l-btn-small l-btn-disabled"
+                                                data-options="iconCls:'icon-remove',disabled:true" onclick="delRowYW(this,1);"
+                                                style="width: 33px; position: static; display: inline-block; left: auto;"
+                                                group="" id="">
+                                                <span class="l-btn-left l-btn-icon-left" style="margin-top: 0px;">
+                                                    <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                                                    <span class="l-btn-icon icon-remove">&nbsp;</span>
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>企业落实行业网络安全管理要求情况</td>
+                        <td colspan="5" style="text-align: left;">
+                            <span style="height: 20px;line-height:20px;">
+                                提示：
+                                <br> 1、企业网络和业务系统定级备案、三同步要求落实情况，需提供定级备案报告、三同步落实情况报告。
+                                <br> 2、企业自主开展或委托第三方专业机构开展网络安全防护符合性评测、风险评估的情况，需提供符合性评测及风险评估报告、整改报告等。
+                                <br> 3、利用移动应用开展公众服务的企业需提供由第三方专业机构开展移动应用安全的情况，并附评估报告。
+                            </span>
+                            <table class="table table-celled">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center; padding: 9px 120px;">文件名称</th>
+                                        <th style="text-align: center;padding: 9px 122px;">上传时间</th>
+                                        <th style="text-align: center;padding: 9px 55px;">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="content4"></tbody>
+                            </table>
+                            <span class="layui-input-block" style="width: 768px; height: 78px;">
+                                <textarea lay-verify="required" id="_easyui_textbox_input18" class="layui-input"
+                                    autocomplete="off" name="jg1061" tabindex="" placeholder="1、企业网络和业务系统定级备案、三同步要求落实情况，需提供定级备案报告、三同步落实情况报告。
+            2、企业自主开展或委托第三方专业机构开展网络安全防护符合性评测、风险评估的情况，需提供符合性评测及风险评估报告、整改报告等。
+            3、利用移动应用开展公众服务的企业需提供由第三方专业机构开展移动应用安全的情况，并附评估报告。"
+                                    maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
+
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="7">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        layui.use(['form','upload'],function(){
+            $ = layui.jquery;
+            var form = layui.form();
+            upload = layui.upload();
+        $;
+
+            $.ajax({
+                url: '/path/to/file',
+                type: 'POST',
+                dataType: 'json',
+                async:false,
+                data: {param1: 'value1'},
+                beforeSend:function(xml){
+                    xml.setRequestHeader('abc','ddd');
+                }
+            })
+            
+        });
+    </script>
+</body>
+
+</html>
