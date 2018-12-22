@@ -76,7 +76,9 @@
                 data: data.field,
                 success: function(data) {
                     if (data.code == 200) {
-
+                        layer.alert(data.msg);
+                    }else{
+                        layer.alert(data.msg);
                     }
                 },
                 error: function() {
