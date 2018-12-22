@@ -85,3 +85,6 @@ td {
 #page{
     float:right;
 }
+.msg_result{
+    display: none;
+}

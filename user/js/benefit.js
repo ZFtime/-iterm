@@ -62,6 +62,7 @@
                         form.render('checkbox');
                     }
                 } else if (res.code == 0) {
+                    layer.alert(res.msg);
                     $('#flag3').attr('data-id','0');
                 } else {
                     layer.alert(res.msg);
@@ -100,9 +101,11 @@
                 success:function(res){
                     if (res.code == 200) {
                         $('#flag3').attr('data-id','1');
-                        layer.alert('操作成功');
-                    } else{
                         layer.alert(res.msg);
+                    } else if(res.code == 1){
+                        layer.alert(res.msg);
+                    }else {
+                         layer.alert(res.msg);
                     }
                 },
                 error:function(){

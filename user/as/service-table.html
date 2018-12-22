@@ -122,12 +122,9 @@
                         <td>用户投诉回复率</td>
                         <td>%</td>
                         <td>
-                            <input class="easyui-textbox textbox-f" id="jg1023" data-options="value:'100',prompt:'指公司对用户投诉处理回复数量占总投诉量的比例。',required:true,validType:['onePoint','maxPoint']"
-                                style="width: 100%; display: none;" textboxname="jg1023">
                             <span class="textbox easyui-fluid" style="width: 548px; height: 30px;">
-                                <input name="input5" lay-verify="required" id="_easyui_textbox_input5" type="text" class="_layui_input  layui-input" autocomplete="off" value=""
+                                <input name="input5" lay-verify="rate" id="_easyui_textbox_input5" type="text" class="_layui_input  layui-input" autocomplete="off" value=""
                                     tabindex="" placeholder="指公司对用户投诉处理回复数量占总投诉量的比例。" maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 528px;">
-                                <input type="hidden" class="textbox-value" value="100" maxlength="1000">
                             </span>
                         </td>
                         <td>
@@ -137,23 +134,21 @@
                     <tr>
                         <td>6</td>
                         <td>用户投诉主要问题及原因
-                            <!-- <button lay-filter="sub" lay-submit="" class="sub layui-btn layui-btn-xs">测试</button> -->
                         </td>
                         <td colspan="2" style="text-align: left;">
                             <span style="line-height: 30px;height:30px;">提示：指用户投诉中占较多数量的问题，同时将产生问题的原因加以分析</span>
-                            <!-- <input class="easyui-textbox textbox-f" id="jg1024" data-options="multiline:true,prompt:'指用户投诉中占较多数量的问题，同时将产生问题的原因加以分析。',required:true,validType:'length[0,2000]'"
-                                style="width: 100%; height: 100px; display: none;" textboxname="jg1024"> -->
                             <span class="textbox easyui-fluid" style="width: 605px; height: 98px;">
-                                <textarea name="text1" lay-verify="required" id="_easyui_textbox_input6" class="_layui_input  layui-input" autocomplete="off"
+                                <textarea name="text1" lay-verify="required" id="_easyui_textbox_input6" class="_layui_input  layui-input common_textarea" autocomplete="off"
                                     tabindex="" placeholder="指用户投诉中占较多数量的问题，同时将产生问题的原因加以分析。" maxlength="2000" style="margin: 0px; height: 90px; width: 585px;"></textarea>
-                                <input type="hidden" class="textbox-value" value="无" maxlength="1000">
                             </span>
                         </td>
                         <td></td>
                     </tr>
                     <tr>
                         <td colspan="5">
-
+                            <div style="text-align: center">
+                                <span class="layui-btn"  id="saveStatus" lay-submit lay-filter="save2">保存</span>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -166,11 +161,7 @@
     <!-- <script src="../js/x-layui.js"></script>
     <script src="../js/jquery-3.3.1.js"></script> -->
     <!-- <script src="../laydate/laydate.js"></script> -->
-    <script>
-        /*  
-            laydate.render({
-                elem: '#test1' //指定元素
-            });  */          
+    <script>     
         
         layui.use(['layer','form'],function(){
             $ = layui.jquery;
@@ -179,21 +170,14 @@
             var layer = layui.layer;
 
             var min0 = /^(0|[1-9]\d*)$/;
+            var rate=/^(100|[1-9]?\d(\.\d\d?\d?)?)%$|0$/;
             form.verify({
                 min0:[min0, '用户投诉量只能是整数'],
+                rate:[rate,"请输入0-100的百分数"]
             });
 
         });
 
-    </script>
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
     </script>
 </body>
 

@@ -86,11 +86,9 @@
                                 提示：请简要介绍业务情况：如提供服务描述（如信息服务业务，应具体到信息发布平台和递送服务、信息搜索查询服务、信息社区平台服务等）、业务实现形式（如国内多方通信服务业务，应具体到由多方通信平台和公用通信网实现、多方通信平台和互联网实现等）、业务开通情况（开通区域、开通时间）、业务发展情况（主要是用户规模、月活跃用户数、日活跃用户数等）。
                             </span>
                             <span class="layui-input-block" id="jg1053" style="width: 767px; height: 78px;">
-                                <textarea lay-verify="required" id="_easyui_textbox_input3" class="layui-input"
+                                <textarea lay-verify="required" id="_easyui_textbox_input3" class="layui-input common_textarea"
                                     autocomplete="off" name="jg1053" tabindex="" placeholder="请简要介绍业务情况：如提供服务描述（如信息服务业务，应具体到信息发布平台和递送服务、信息搜索查询服务、信息社区平台服务等）、业务实现形式（如国内多方通信服务业务，应具体到由多方通信平台和公用通信网实现、多方通信平台和互联网实现等）、业务开通情况（开通区域、开通时间）、业务发展情况（主要是用户规模、月活跃用户数、日活跃用户数等）。"
                                     maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
-                                <!--   <input type="hidden" class="textbox-value" value="请简要介绍业务情况：信息发布平台和递送服务。业务开通时间：2016年09月16日。用户规模1000，月活跃用户数500，日活跃用户数100。"
-                                    maxlength="1000"> -->
                             </span>
                         </td>
                     </tr>
@@ -105,7 +103,7 @@
                                 <br> 3、请写明网络与信息安全管理人员名单、人员所在部门、从业资质情况等。
                             </span>
                             <span class="layui-input-block" style="width: 767px; height: 78px;">
-                                <textarea lay-verify="required" id="_easyui_textbox_input4" class="layui-input"
+                                <textarea lay-verify="required" id="_easyui_textbox_input4" class="layui-input common_textarea"
                                     autocomplete="off" name="jg1054"   placeholder="1、请写明网络与信息安全主管领导姓名、职务； 2、请说明企业网络与信息安全管理组织架构，以及涉及主体或部门的职责及分工； 3、请写明网络与信息安全管理人员名单、人员所在部门、从业资质情况等。"
                                     maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
                             </span>
@@ -122,20 +120,30 @@
                             <table class="table table-celled">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center;padding: 9px 82px;">文件名称</th>
-                                        <th style="text-align: center;padding: 9px 82px;">上传时间</th>
+                                        <th style="text-align: center;padding: 9px 121px;">文件名称</th>
+                                        <th style="text-align: center;padding: 9px 121px;">上传时间</th>
                                         <th style="text-align: center; padding: 9px 55px;">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody id="content2">
+                                     <tr>
+                                        <td>
+                                           <a href="javascript:;" id="upload_filename1">
+                                           </a>
+                                        </td>
+                                        <td>
+                                            <span id="upload_filetime1"></span>
+                                        </td>
+                                        <td>
+                                           <input type="file" name="file1" id="upload1" lay-type="file" class="layui-upload-file"> 
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <span class="layui-input-block" style="width: 767px; height: 78px;">
-                                <textarea lay-verify="required" id="_easyui_textbox_input5" name="jg1055" class="layui-input"
+                                <textarea lay-verify="required" id="_easyui_textbox_input5" name="jg1055" class="layui-input common_textarea"
                                     autocomplete="off" tabindex="" placeholder="信息安全管理制度：包括但不限于信息安全管理责任制、信息安全评估、用户信息安全管理、违法违规互联网信息服务和违法信息的巡查与处置、重大信息安全事件应急处置和报告制度、信息安全教育培训、用户举报和投诉处理等制度，请写明企业内部相关管理制度名称并附制度文本。"
                                     maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
-                                <!-- <input type="hidden" class="textbox-value" value="信息安全管理制度：包括信息安全管理责任制、信息安全评估、用户信息安全管理、违法违规互联网信息服务和违法信息的巡查与处置、重大信息安全事件应急处置和报告制度、信息安全教育培训、用户举报和投诉处理等制度。见附件"
-                                    maxlength="1000"> -->
                             </span>
                         </td>
                     </tr>
@@ -150,17 +158,29 @@
                             <table class="table table-celled">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center;padding: 9px 82px;">文件名称</th>
-                                        <th style="text-align: center;padding: 9px 82px;">上传时间</th>
+                                        <th style="text-align: center;padding: 9px 121px;">文件名称</th>
+                                        <th style="text-align: center;padding: 9px 121px;">上传时间</th>
                                         <th style="text-align: center;padding: 9px 55px;">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody id="content3">
-                                   
+                                    <tr>
+                                        <td>
+                                           <a href="javascript:;" id="upload_filename2">
+                                           </a>
+                                        </td>
+                                        <td>
+                                            <span id="upload_filetime2"></span>
+                                        </td>
+                                        <td>
+                                           <!-- <input type="file" name="file2" id="upload2" lay-type="file" class="layui-upload-file">  -->
+                                           <input type="file" name="file2" id="upload2">
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <span class="layui-input-block" style="width: 767px; height: 78px;">
-                                <textarea id="_easyui_textbox_input6" class="layui-input" autocomplete="off" name="jg1056"
+                                <textarea id="_easyui_textbox_input6" class="layui-input common_textarea" autocomplete="off" name="jg1056"
                                     tabindex="" placeholder="1、网络安全管理制度：包括但不限于网络安全防护工作机制、网络安全事件应急处置和报告制度、网络安全威胁处置制度等，请写明企业内部相关管理制度名称并附制度文本。 
             2、网络安全操作规程：包括但不限于制定的信息化及安全相关部门网络安全操作标准规范、采用或使用的网络安全标准等，需写明标准规范名称及主要内容。"
                                     maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
@@ -176,7 +196,7 @@
                             </span>
 
                             <span class="layui-input-block" style="width: 767px; height: 78px;">
-                                <textarea lay-verify="required" id="_easyui_textbox_input8" class="layui-input"
+                                <textarea lay-verify="required" id="_easyui_textbox_input8" class="layui-input common_textarea"
                                     autocomplete="off" name="jg1057" tabindex="" placeholder="需详细介绍企业信息安全技术保障措施的建设运行与使用管理等情况，包括但不限于违法信息监测处置、日志留存等技术手段。"
                                     maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
                             </span>
@@ -236,7 +256,7 @@
                                             </span>
                                         </td>
                                         <td>
-                                             <a href="javascript:void(0);" lay-filter="add" lay-submit>
+                                             <a href="javascript:void(0);"  class="addRow">
                                                 <i class="layui-icon">&#xe608;</i>
                                             </a>
                                             <a href="javascript:void(0);">
@@ -260,7 +280,7 @@
                                 2、对于持有B11、B14、B25、B26-1业务牌照的企业，应详细介绍本企业针对木马僵尸网络、移动恶意程序、网站仿冒等公共网络安全威胁，采取停止仿冒网站或恶意程序传播、控制服务器的域名解析服务等技术手段或处置措施。
                             </span>
                             <span class="layui-input-block" style="width: 767px; height: 78px;">
-                                <textarea lay-verify="required" id="_easyui_textbox_input12" class="layui-input"
+                                <textarea lay-verify="required" id="_easyui_textbox_input12" class="layui-input common_textarea"
                                     autocomplete="off" name="jg1059" tabindex="" placeholder="1、按照通信网络防护标准，详细介绍企业网络安全防护相关技术保障措施建设情况，包括管理安全、网络系统安全、应用安全、主机安全、数据安全、物理环境安全等。
             2、对于持有B11、B14、B25、B26-1业务牌照的企业，应详细介绍本企业针对木马僵尸网络、移动恶意程序、网站仿冒等公共网络安全威胁，采取停止仿冒网站或恶意程序传播、控制服务器的域名解析服务等技术手段或处置措施。"
                                     maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
@@ -375,7 +395,7 @@
                             <input class="easyui-textbox textbox-f" id="jg1058" data-options="required:true,validType:'length[1,2000]',multiline:true,prompt:'1、请企业描述针对违法有害信息处置情况（处理XX条，采取XX措施）\n2、请描述企业落实新技术新业务安全评估工作情况。（开展XX新业务评估）'"
                                 style="width: 100%; height: 80px; display: none;">
                             <span class="layui-input-block" style="width: 768px; height: 78px;">
-                                <textarea lay-verify="required" id="_easyui_textbox_input17" class="layui-input"
+                                <textarea lay-verify="required" id="_easyui_textbox_input17" class="layui-input common_textarea"   name="jg1058" 
                                     autocomplete="off" name="jg1060" tabindex="" placeholder="1、请企业描述针对违法有害信息处置情况（处理XX条，采取XX措施）2、请描述企业落实新技术新业务安全评估工作情况。（开展XX新业务评估）"
                                     maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
                                 <!--  <input type="hdden" class="textbox-value" value="我公司无违法有害信息，暂时没有新技术新业务。" maxlength="1000"> -->
@@ -396,15 +416,14 @@
                             <table class="table table-celled">
                                 <thead>
                                     <tr>
-                                         <th style="text-align: center;padding: 9px 82px;">文件名称</th>
-                                        <th style="text-align: center; padding: 9px 82px;">上传时间</th>
+                                         <th style="text-align: center;padding: 9px 121px;">文件名称</th>
+                                        <th style="text-align: center; padding: 9px 121px;">上传时间</th>
                                         <th style="text-align: center; padding: 9px 55px;">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody id="content4">
                                    <tr>
                                         <td>
-                                           <!--  <a href="javascript:void(0);" onclick="downloadFile('信息安全管理度.docx','reportFiles/2018/02/22/1519281732883098.docx');">信息安全管理度.docx</a> -->
                                            <a href="javascript:;" id="upload_filename3">
                                                
                                            </a>
@@ -413,13 +432,14 @@
                                             <span id="upload_filetime3"></span>
                                         </td>
                                         <td>
-                                           <input type="file" name="file3" id="upload3" lay-type="file" class="layui-upload-file"> 
+                                        <!--    <input type="file" name="file3" id="upload3" lay-type="file" class="layui-upload-file">  -->
+                                        <input type="file" name="file3" id="upload3">
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <span class="layui-input-block" style="width: 768px; height: 78px;">
-                                <textarea lay-verify="required" id="_easyui_textbox_input18" class="layui-input"
+                                <textarea lay-verify="required" id="_easyui_textbox_input18" class="layui-input common_textarea"
                                     autocomplete="off" name="jg1061" tabindex="" placeholder="1、企业网络和业务系统定级备案、三同步要求落实情况，需提供定级备案报告、三同步落实情况报告。2、企业自主开展或委托第三方专业机构开展网络安全防护符合性评测、风险评估的情况，需提供符合性评测及风险评估报告、整改报告等。 3、利用移动应用开展公众服务的企业需提供由第三方专业机构开展移动应用安全的情况，并附评估报告。"
                                     maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
 
@@ -453,7 +473,7 @@
                             <input class="easyui-textbox textbox-f" id="jg1061" data-options="required:true,validType:'length[1,2000]',multiline:true,prompt:'1、请说明企业是否发生过重大网络和信息安全事件，或被媒体报道或行业主管部门通报情况，需要说明事件处置情况、事件向行业主管部门的上报情况、针对事件的整改情况等。'"
                                 style="width: 100%; height: 80px; display: none;">
                             <span class="layui-input-block" style="width: 768px; height: 78px;">
-                                <textarea lay-verify="required" id="_easyui_textbox_input20"  class="layui-input" autocomplete="off"    name="jg1063"
+                                <textarea lay-verify="required" id="_easyui_textbox_input20"  class="layui-input common_textarea" autocomplete="off"    name="jg1063"
                                     tabindex="" placeholder="1、请说明企业是否发生过重大网络和信息安全事件，或被媒体报道或行业主管部门通报情况，需要说明事件处置情况、事件向行业主管部门的上报情况、针对事件的整改情况等。"
                                     maxlength="2000" style="margin: 0px; height: 70px; width: 748px;"></textarea>
                             </span>
@@ -461,7 +481,9 @@
                     </tr>
                     <tr>
                         <td colspan="7">
-
+                                <div style="text-align: center">
+                                <span class="layui-btn"  id="status" lay-submit lay-filter="save4">保存</span>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

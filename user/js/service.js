@@ -34,13 +34,14 @@
                     }
                     form.render('checkbox');  
                 } else if (data.code == 0) {
+                    layer.alert(data.msg);
                     $('#flag2').attr('data-id', '0');
                 } else {
                     layer.alert(data.msg);
                 }
             },
-            error: function() {
-
+            error: function(data) {
+                layer.alert(data.msg);
             }
         })
         //服务质量保存被点击
@@ -76,13 +77,16 @@
                 data: data.field,
                 success: function(data) {
                     if (data.code == 200) {
+                        $('#flag').attr('data-id','1');
+                        layer.alert(data.msg);
+                    }else if(data.code==1){
                         layer.alert(data.msg);
                     }else{
                         layer.alert(data.msg);
                     }
                 },
                 error: function() {
-
+                    layer.alert(data.msg);
                 }
             })
 

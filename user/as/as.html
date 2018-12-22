@@ -133,12 +133,24 @@
             $ = layui.jquery;
             layer = layui.layer;
             // 判断证书类型
-            var businesstype=sessionStorage.getItem('businesstype');
-            console.log(businesstype);
-            // 
-                 if(businesstype.indexOf('信息服务业务')!==-1||businesstype.indexOf('互联网接入服务业务')!==-1||businesstype.indexOf('互联网数据中心业务')!==-1){
-                      // $('.msg_result').css("backgroundColor","red");
-                 }      
+           var businesstype = sessionStorage.getItem('businesstype');
+            var busArr = businesstype.split('：')[0];
+            var dataId = '';
+            var arraytype=['信息服务业务（仅限互联网信息服务）','国内呼叫中心业务','互联网接入服务业务','互联网数据中心业务','信息服务业务（不含互联网信息服务)'];
+            for(var i=0;i<arraytype.length;i++){
+            if (arraytype[i] == busArr) {
+                dataId = '' + i;
+                }
+            }
+            if (dataId == '0') {
+            $('.msg_result:eq(' + dataId + ')').css('display', "block");
+            } else if (dataId == '1') {
+            $('.msg_result:eq(' + dataId + ')').css('display', "block");
+            } else if (dataId == '2') {
+            $('.msg_result:eq(' + dataId + ')').css('display', "block");
+            }else if(dataId == '3'){
+            $('.msg_result:eq(' + dataId + ')').css('display', "block");
+            }
 })
         $(function(){
             $("#loginUsername").text(sessionStorage.getItem('loginUsername'));

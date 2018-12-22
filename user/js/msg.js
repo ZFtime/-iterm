@@ -11,7 +11,7 @@ layui.use(['form'], function() {
         decimal: [decimal, '请填入合理的数字'],
         min0: [min0, '请填入大于等于0的整数'],
     });
-    var arr=[];
+    var arr=['1'];
     function handleCheckboxData(data) {
         //这里是处理下传递过来的checkedvalue；
         var ind=arr.indexOf(data);
@@ -63,19 +63,21 @@ layui.use(['form'], function() {
                         form.render('radio');
                 })
             }else if(res.code==0){
+                layer.alert(res.msg);
                 $("#flag5").attr('data-id', '0');
             }else{
                 layer.alert(res.msg);
             }
         },
         error:function(res){
-
+            layer.alert(res.msg);
         }
     })
     form.on('submit(save5)', function(data) {
         var arrSort=arr.sort();
         var arrStr=arr.join(',');
         var checkboxStr=arrStr+$('#_easyui_textbox_input1').val();
+        console.log(checkboxStr);
         data.field.save5Id=save5Id
         data.field.jg2181 = checkboxStr;
          if ($('#flag5').attr('data-id') == '1') {
@@ -93,14 +95,18 @@ layui.use(['form'], function() {
                 dataType: 'json',
                 data: data.field,
                 success:function(res){
+                    console.log(res);
                     if (res.code == 200) {
                         $('#flag5').attr('data-id','1');
                         layer.alert('操作成功');
-                    } else{
-                        layer.alert(res.msg);                    }
+                    } else if(res.code == 1){
+                        layer.alert(res.msg);                    
+                    }else {
+                        layer.alert(res.msg);            
+                    }
                 },
-                error:function(){
-
+                error:function(res){
+                    layer.msg(res.msg);
                 }
             }) 
 

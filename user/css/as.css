@@ -29,3 +29,8 @@
     font-size: 13px;
     font-weight: normal;
 }
+.common_textarea{
+    width:430px;
+    height:100px;
+    resize:none;
+}
