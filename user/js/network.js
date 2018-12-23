@@ -49,15 +49,6 @@ function delRow(obj, id) {
             decimal: [decimal, '请填入合理的数字'],
             min0: [min0, '请填入大于等于0的整数'],
         });
-        // form.on('submit(add)', function (data) {
-        //     console.log(111);
-        //     $('.table-celled-td').append(
-        //         '<tr class="FG"><td><input id="_easyui_textbox_input9" type="text" class="layui-input" autocomplete="off" tabindex="" placeholder="" name="jg1058" value=""  maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 151px;"></td><td>  <input id="_easyui_textbox_input10" name="jg1059" type="text" class="layui-input" value="" autocomplete="off" tabindex="" placeholder="" maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 150px;"></td><td><input type="radio" class="radio" title="是" name="jg1060' + addName + '" id="jg1060" value="1"><input type="radio" id="jg1060" class="radio" name="jg1060' + addName + '" value="0" title="否" checked=""></td><td> <input id="_easyui_textbox_input22" type="text" class="layui-input validatebox-readonly textbox-prompt" name="jg1061" value="" autocomplete="off" tabindex=""  placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 140px;"></td><td><a href="javascript:void(0);" lay-filter="add" lay-submit> <i class="layui-icon">&#xe608;</i> </a> <a href="javascript:;" onclick="delRow(this,\'1\')" <i class="layui-icon">&#xe640;</i></a></td>' +
-        //         '</td>' +
-        //         '</tr>'
-        //     );
-          
-        // });
         $(".table-celled-td").on('click',".addRow",function(){
                 $('.table-celled-td').append(
                 '<tr class="FG"><td><input id="_easyui_textbox_input9" type="text" class="layui-input" autocomplete="off" tabindex="" placeholder="" name="jg1058" value=""  maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 151px;"></td><td>  <input id="_easyui_textbox_input10" name="jg1059" type="text" class="layui-input" value="" autocomplete="off" tabindex="" placeholder="" maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 150px;"></td><td><input type="radio" class="radio" title="是" name="jg1060' + addName + '" id="jg1060" value="1"><input type="radio" id="jg1060" class="radio" name="jg1060' + addName + '" value="0" title="否" checked=""></td><td> <input id="_easyui_textbox_input22" type="text" class="layui-input validatebox-readonly textbox-prompt" name="jg1061" value="" autocomplete="off" tabindex=""  placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 140px;"></td><td><a href="javascript:void(0);" class="addRow"> <i class="layui-icon">&#xe608;</i> </a> <a href="javascript:;" onclick="delRow(this,\'1\')" <i class="layui-icon">&#xe640;</i></a></td>' +
@@ -68,20 +59,6 @@ function delRow(obj, id) {
             form.render('radio');
             return false;
         })
-        //$(".addRow").click(function(){
-           
-        // })
-        // $(".table-celled-td").click('on','.addRow',function(){
-        //     console.log(1111);
-            // $('.table-celled-td').append(
-            //     '<tr class="FG"><td><input id="_easyui_textbox_input9" type="text" class="layui-input" autocomplete="off" tabindex="" placeholder="" name="jg1058" value=""  maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 151px;"></td><td>  <input id="_easyui_textbox_input10" name="jg1059" type="text" class="layui-input" value="" autocomplete="off" tabindex="" placeholder="" maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 150px;"></td><td><input type="radio" class="radio" title="是" name="jg1060' + addName + '" id="jg1060" value="1"><input type="radio" id="jg1060" class="radio" name="jg1060' + addName + '" value="0" title="否" checked=""></td><td> <input id="_easyui_textbox_input22" type="text" class="layui-input validatebox-readonly textbox-prompt" name="jg1061" value="" autocomplete="off" tabindex=""  placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 140px;"></td><td><a href="javascript:void(0);" lay-filter="add" lay-submit> <i class="layui-icon">&#xe608;</i> </a> <a href="javascript:;" onclick="delRow(this,\'1\')" <i class="layui-icon">&#xe640;</i></a></td>' +
-            //     '</td>' +
-            //     '</tr>'
-            // );
-            //   addName++;
-            // form.render('radio');
-            // return false;
-        // })
         // 获取数据
         $.ajax({
             type: 'get',
@@ -91,9 +68,8 @@ function delRow(obj, id) {
                 id: jg1065
             },
             success: function (res) {
-                console.log(res,111);
                 if (res.code == 200) {
-                    console.log(res)
+                    // console.log(res)
                     var html_file1 = '';
                     var html_file2='';
                     var html_file3='';
@@ -135,29 +111,29 @@ function delRow(obj, id) {
                     $("#flag4").attr('data-id', '1');
                     $("input[name='jg1051']").val(res.data.jg1051);
                     $("input[name='jg1052']").val(res.data.jg1052);
-                    $("input[name='jg1053']").val(res.data.jg1053);
-                    $("input[name='jg1054']").val(res.data.jg1054);
-                    $('input[name="jg1055"]').val(res.data.jg1055);
-                    $('input[name="jg1056"]').val(res.data.jg1056);
-                    $('input[name="jg1057"]').val(res.data.jg1057);
+                    $("#_easyui_textbox_input3").html(res.data.jg1053);
+                    $("#_easyui_textbox_input4").html(res.data.jg1054);
+                    $('#_easyui_textbox_input5').html(res.data.jg1055);
+                    $('#_easyui_textbox_input6').html(res.data.jg1056);
+                    $('#_easyui_textbox_input8').html(res.data.jg1057);
 
-                    $('input[name="jg1059"]').val(res.data.jg1059);
-                    $('input[name="jg1060"]').val(res.data.jg1060);
-                    $('input[name="jg1061"]').val(res.data.jg1061);
-                    $('input[name="jg1062"]').val(res.data.jg1062);
-                    $('input[name="jg1063"]').val(res.data.jg1063);
+                    $('#_easyui_textbox_input12').html(res.data.jg1059);
+                    $('#_easyui_textbox_input17').html(res.data.jg1060);
+                    $('#_easyui_textbox_input18').html(res.data.jg1061);
+                    $('#_easyui_textbox_input19').html(res.data.jg1062);
+                    $('#_easyui_textbox_input20').html(res.data.jg1063);
                     $('input[name="jg1064"]').val(res.data.jg1064);
                     var data = res.data.jg1058;
                     // console.log(data);
 
                     var arr = JSON.parse(data);
-                    console.log(arr)
+                    // console.log(arr)
                     var html = "";
 
                     for (var i = 0; i < arr.length; i++) {
                         html += '<tr class="FG">' +
                             '<td>' +
-                            '<input id="_easyui_textbox_input9" type="text" class="layui-input" autocomplete="off" tabindex="" placeholder="" name="jg1058" value=" ' + arr[i].input1 + ' "  maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 151px;"></td><td>  <input id="_easyui_textbox_input10" name="jg1059" type="text" class="layui-input" value=" ' + arr[i].input2 + ' " autocomplete="off" tabindex="" placeholder="" maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 150px;"></td><td><input type="radio" class="radio" title="是" name="jg1060' + addName + '" id="jg1060" value="1"><input type="radio" id="jg1060" class="radio" name="jg1060' + addName + '" value="0" title="否" checked=""></td><td> <input id="_easyui_textbox_input22" type="text" class="layui-input validatebox-readonly textbox-prompt" name="jg1061" value=" ' + arr[i].input4 + ' " autocomplete="off" tabindex=""  placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 140px;"></td><td><a href="javascript:void(0);" lay-filter="add" lay-submit> <i class="layui-icon">&#xe608;</i> </a> <a href="javascript:;" onclick="delRow(this,\'1\')" <i class="layui-icon">&#xe640;</i></a></td>' +
+                            '<input id="_easyui_textbox_input9" type="text" class="layui-input" autocomplete="off" tabindex="" placeholder="" name="jg1058" value=" ' + arr[i].input1 + ' "  maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 151px;"></td><td>  <input id="_easyui_textbox_input10" name="jg1059" type="text" class="layui-input" value=" ' + arr[i].input2 + ' " autocomplete="off" tabindex="" placeholder="" maxlength="1000" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 150px;"></td><td><input type="radio" class="radio" title="是" name="jg1060' + addName + '" id="jg1060" value="1"><input type="radio" id="jg1060" class="radio" name="jg1060' + addName + '" value="0" title="否" checked=""></td><td> <input id="_easyui_textbox_input22" type="text" class="layui-input validatebox-readonly textbox-prompt" name="jg1061" value=" ' + arr[i].input4 + ' " autocomplete="off" tabindex=""  placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 30px; line-height: 30px; width: 140px;"></td><td><a href="javascript:void(0);" class="addRow"> <i class="layui-icon">&#xe608;</i> </a> <a href="javascript:;" onclick="delRow(this,\'1\')" <i class="layui-icon">&#xe640;</i></a></td>' +
                             '</td>' +
                             '</tr>'
                         addName++;
@@ -214,7 +190,7 @@ function delRow(obj, id) {
                 url: "http://qzt.cn/api.php/index/Netsecurity/" + addr + ".html",
                 dataType: "json",
                 data: data.field,
-                success: function (res) {
+                success: function (data) {
                     if (data.code == 200) {
                         $('#flag4').attr('data-id','1');
                         layer.alert(data.msg);
@@ -228,7 +204,7 @@ function delRow(obj, id) {
 
                 }
             })
-            console.log(data.field)
+            // console.log(data.field,"测试")
             return false;
         })
 

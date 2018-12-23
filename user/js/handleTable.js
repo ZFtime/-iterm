@@ -29,7 +29,6 @@ var jg1020 = sessionStorage.getItem('infoId');
                 id: jg1020
             },
             success: function (data) {
-                console.log(data)
                 if (data.code == 200) {
                     $("#flag1").attr('data-id', '1');
                     $("#_easyui_textbox_input1").val(data.data.jg1000)
@@ -72,7 +71,6 @@ var jg1020 = sessionStorage.getItem('infoId');
                         form.render('radio');
                     })
                     var dataStatus = (data.data.jg1014 || '').slice(0, 1);
-                    console.log(dataStatus);
                     if(dataStatus==1) {
                          $('#_easyui_textbox_input12').prop('disabled', true)
                         $('#_easyui_textbox_input28').prop('disabled', true)

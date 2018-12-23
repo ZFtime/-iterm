@@ -1,5 +1,5 @@
 layui.use(['form'], function() {
-     var save5Id = sessionStorage.getItem('infoId');
+     var flagId = sessionStorage.getItem('infoId');
     $ = layui.jquery;
     form = layui.form();
     var min0 = /^(0|[1-9]\d*)$/;
@@ -28,7 +28,7 @@ layui.use(['form'], function() {
             if (data.elem.checked) {
                 $('#_easyui_textbox_input1').prop('disabled', false);
             } else {
-                $('#_easyui_textbox_input1').prop('disabled', true).val();
+                $('#_easyui_textbox_input1').prop('disabled', true).val("");
             }
         }
         
@@ -38,7 +38,7 @@ layui.use(['form'], function() {
         url: 'http://qzt.cn/api.php/index/netser.html',
         dataType: 'json',
         data: {
-            id: save5Id
+            id: flagId
         },
         success:function(res){
             console.log(res);
@@ -78,7 +78,7 @@ layui.use(['form'], function() {
         var arrStr=arr.join(',');
         var checkboxStr=arrStr+$('#_easyui_textbox_input1').val();
         console.log(checkboxStr);
-        data.field.save5Id=save5Id
+        data.field.flagId=flagId
         data.field.jg2181 = checkboxStr;
          if ($('#flag5').attr('data-id') == '1') {
                 var addr = 'edit';
