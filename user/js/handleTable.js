@@ -53,10 +53,14 @@ var jg1020 = sessionStorage.getItem('infoId');
                     var str = '';
                     str = data.data.jg1003;
                     arr = (str || '').split(',');
-                    $('#jg1003-1').find('span').remove()
+                    console.log(arr);
+                    //回显右边和回显左边，判断数组lenth
+                    $('#jg1003-1').find('span').remove();
                     $("input[name='jg1003']").each(function () {
                         for (var i = 0; i < arr.length; i++) {
+                            console.log(arr.length);
                             if ($(this).attr('data-id') == arr[i]) {
+                                console.log($(this).attr('data-id'),1111)
                                 $(this).prop('checked', true);
                                 $("#jg1003-1").append('<span style="margin-right:5px;" id="' + $(this).val() + '" data-id="' + arr[i] + '">' +
                                     $(this).val() + '</span>')
@@ -64,6 +68,30 @@ var jg1020 = sessionStorage.getItem('infoId');
 
                         }
                     })
+                    // 优化回显右边和回显左边，判断数组lenth
+                    // for(var i=0;i<arr.length;i++) {
+                    //     var inputValue=$('input[data-id="'+arr[i]+'"]').val();
+                    //     console.log(inputValue);
+                    //     console.log(arr[i]);
+                    //     // $("#jg1003-1").append('<span style="margin-right:5px;" id="' + inputValue+ '" data-id="' + arr[i] + '">' +
+                    //     //             inputValue + '</span>')
+                    // }
+                    if(arr.length>=3) {
+                        console.log(11111111)
+                        $("input[name='jg1003']").each(function(){
+                            if(!$(this).prop("checked")) {
+                                $(this).prop("disabled",true)
+                            }
+                        })
+                    }
+                    if(arr.indexOf('I')==-1) {
+                        $("input[data-id='I'").prop('checked',false);
+                        $("input[data-id='I'").prop('disabled',true)
+                    }
+                    if(arr.indexOf('Y')==-1) {
+                        $("input[data-id='Y'").prop('checked',false);
+                        $("input[data-id='Y'").prop('disabled',true)
+                    }
                     $("input[name='jg1013']").each(function () {
                         if ($(this).val() == data.data.jg1013) {
                             $(this).prop('checked', true);
@@ -145,12 +173,17 @@ var jg1020 = sessionStorage.getItem('infoId');
             }
         })
         form.on('checkbox(jg1003)', function (data) {
+            console.log(data.elem.checked);
             if (data.elem.checked) {
                 $('#jg1003-1').append('<span style="margin-right:5px;" id="' + data.value + '">' +
                     data.value + '</span>')
             } else {
-                $('#jg1003-1').find('#' + data.value + '').remove()
+                $('#jg1003-1').find('#' + data.value + '').remove();
+                $("input:checkbox[name='jg1003']").each(function () {
+                    $(this).prop('disabled', false);
+                })
             }
+            form.render('checkbox');
             judgeLength();
 
         });

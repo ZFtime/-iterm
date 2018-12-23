@@ -204,7 +204,7 @@ function delRow(obj, id) {
 
                 }
             })
-            // console.log(data.field,"测试")
+            console.log(data.field,"测试")
             return false;
         })
 
